@@ -1,10 +1,11 @@
 import React from "react";
+import SearchBox from "./components/SearchBox";
 
 function App() {
   return (
-    <div className="App">
-      App
-    </div>
+    <React.Fragment>
+      <SearchBox />
+    </React.Fragment>
   );
 }
 
