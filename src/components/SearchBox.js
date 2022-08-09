@@ -27,8 +27,9 @@ export default function SearchBox() {
     return (
     <div>
         <input placeholder='search...' className={style.input} onChange={changeHandler} value={value}/>
+        {console.log(cryptoes)}
         <div>
-            <ul>
+            <ul className={style.cryptoesList}>
                 {cryptoes.map(each => <List 
                 key={each.id}
                 image={each.image}
@@ -36,7 +37,7 @@ export default function SearchBox() {
                 name={each.name}
                 symbol={each.symbol}
                 change={each.ath_change_percentage}
-                
+                price={each.current_price}
                 />)}
             </ul>
         </div>

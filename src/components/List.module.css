@@ -1,0 +1,42 @@
+.listItem {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
+    text-align: center;
+    border-top: 1px solid #000;
+    border-left: 1px solid #000;
+    border-right: 1px solid #000;
+    margin: 0 15rem;
+    padding: .5rem ;
+}
+
+.listItem > div {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.listItemImage {
+    width: 40px;
+}
+
+.listItem span {
+    width: 5rem;
+    padding-right: .5rem;
+}
+
+.listItemSymbol {
+    font-weight: 600;
+}
+
+.red {
+    color: #ff0000;
+}
+
+.green {
+    color: #008000;
+}
