@@ -4,30 +4,37 @@ import List from './List'
 import style from './SearchBox.module.css'
 
 import { getUsdData } from './Api'
+import Loader from './Loader'
 
 export default function SearchBox() {
     const [value, setValue] = useState('')
     const [cryptoes, setCryptoes] = useState([])
 
     useEffect(() => {
+        const fetchData = async () => {
+            const data = await getUsdData()
+            if (value === '') {
+                setCryptoes(data)
+                console.log(cryptoes);
+            } else {
+                const filtered = data.filter(each => each.id.includes(value))
+                setCryptoes(filtered)
+                console.log(cryptoes);
+            }
+        }
         fetchData()
-    },[])
+    })
 
-    const fetchData = async () => {
-        const data = await getUsdData()
-        
-        setCryptoes(data)
-    }
 
     const changeHandler = e => {
-        const inputValue = e.target.value
-        setValue(inputValue)
+        const inputElem = e.target.value
+        setValue(inputElem)
     }
 
     return (
     <div>
-        <input placeholder='search...' className={style.input} onChange={changeHandler} value={value}/>
-        {console.log(cryptoes)}
+        <input placeholder='search...' className={style.input} onChange={changeHandler} value={value}/>        
+        <Loader isEmpty={cryptoes}/>
         <div>
             <ul className={style.cryptoesList}>
                 {cryptoes.map(each => <List 

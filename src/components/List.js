@@ -4,7 +4,7 @@ import style from './List.module.css'
 
 export default function List (props) {
     const {image, cap, name, symbol, change, price} = props
-    const x = 4
+    
   return (
     <li className={style.listItem}>
        <div>
